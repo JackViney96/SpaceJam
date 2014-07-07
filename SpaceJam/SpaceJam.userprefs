@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerRotation.cs">
     <Files>
-      <File FileName="SpaceJam.sln" Line="1" Column="1" />
-      <File FileName="Assets\PlayerRotation.cs" Line="7" Column="28" />
-      <File FileName="Assets\PlayerController.cs" Line="13" Column="3" />
-      <File FileName="Assets\followmouse.cs" Line="1" Column="1" />
+      <File FileName="..\..\Joysticks\Joystick_TutorialDemo\Assets\scripts\JoystickController.cs" Line="62" Column="4" />
+      <File FileName="Assets\PlayerRotation.cs" Line="35" Column="55" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

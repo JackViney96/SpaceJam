@@ -3,21 +3,43 @@ using System.Collections;
 
 	public class PlayerRotation : MonoBehaviour 
 {
-	public Transform target;
-	public float force = 0.1f;
-	void Update () 
+	public float deadzone = 0.1f;
+	public float turnforce = 0.1f;
+	void FixedUpdate () 
 	{
-		Vector3 targetDelta = target.position - transform.position;
+		if (Input.GetAxisRaw("4th axis")> deadzone|| Input.GetAxisRaw("4th axis") < -deadzone)
+		{
+			rigidbody.AddTorque(Vector3.forward * (turnforce * Input.GetAxisRaw("4th axis")));
+		}
 		
-		//get the angle between transform.forward and target delta
-		float angleDiff = Vector3.Angle(transform.forward, targetDelta);
+		if(Input.GetAxisRaw("5th axis")> deadzone|| Input.GetAxisRaw("5th axis") < -deadzone)
+		{
+			rigidbody.AddTorque(Vector3.forward * (turnforce * Input.GetAxisRaw("5th axis")));
+		}
+		Vector3 thumbStick = new Vector3(Input.GetAxisRaw("4th axis"), Input.GetAxisRaw("5th axis"), 0);
+	}
+
+	void UpdateAngularVelocity(Quaternion desired)
+	{
+		var z = Vector3.Cross(transform.forward, desired * Vector3.forward);
+		var y = Vector3.Cross(transform.up, desired * Vector3.up);
 		
-		// get its cross product, which is the axis of rotation to
-		// get from one vector to the other
-		Vector3 cross = Vector3.Cross(transform.forward, targetDelta);
+		var thetaZ = Mathf.Asin(z.magnitude);
+		var thetaY = Mathf.Asin(y.magnitude);
 		
-		// apply torque along that axis according to the magnitude of the angle.
-		rigidbody.AddTorque(cross * angleDiff * force);
+		var dt = Time.fixedDeltaTime;
+		var wZ = z.normalized * (thetaZ / dt);
+		var wY = y.normalized * (thetaY / dt);
+		
+		var q = transform.rotation * rigidbody.inertiaTensorRotation;
+		var T = q * Vector3.Scale(rigidbody.inertiaTensor, Quaternion.Inverse(q) * (wZ + wY));
+		
+		// too wobbly
+		//rigidbody.AddTorque(T, ForceMode.VelocityChange);
+		
+		// stable, but still laggy
+		rigidbody.angularVelocity = T;
+		rigidbody.maxAngularVelocity = T.magnitude;
 	}
 }
 /*
