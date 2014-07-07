@@ -9,8 +9,24 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		Movement ();
 	}
-	void Movement() { 
-		//Physical Forces are applied to the controller's rigidbody to move it.
+	void Movement() {
+
+		if (Input.GetAxis("Vertical") == 1)
+		{
+			rigidbody.AddForce(Vector3.up * (speed * Time.deltaTime));	
+		}
+		if (Input.GetAxis("Vertical") == -1)
+		{
+			rigidbody.AddForce(-Vector3.up * (speed * Time.deltaTime));	
+		}
+		if (Input.GetAxis("Horizontal") == 1) {
+			rigidbody.AddForce(Vector3.right * (speed * Time.deltaTime));	
+		}
+		if (Input.GetAxis("Horizontal") == -1) {
+			rigidbody.AddForce(-Vector3.right * (speed * Time.deltaTime));
+		}
+
+		/* //Physical Forces are applied to the controller's rigidbody to move it.
 		if (Input.GetKey (KeyCode.W)) {
 			rigidbody.AddForce(Vector3.up * (speed * Time.deltaTime));	
 		}
@@ -23,5 +39,6 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A)) {
 			rigidbody.AddForce(-Vector3.right * (speed * Time.deltaTime));
 		}
+		*/
 	}
 }
