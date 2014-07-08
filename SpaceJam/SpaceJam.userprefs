@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerRotation.cs">
     <Files>
-      <File FileName="..\..\Joysticks\Joystick_TutorialDemo\Assets\scripts\JoystickController.cs" Line="62" Column="4" />
-      <File FileName="Assets\PlayerRotation.cs" Line="35" Column="55" />
+      <File FileName="Assets\PlayerRotation.cs" Line="22" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -17,6 +17,12 @@ using System.Collections;
 			rigidbody.AddTorque(Vector3.forward * (turnforce * Input.GetAxisRaw("5th axis")));
 		}
 		Vector3 thumbStick = new Vector3(Input.GetAxisRaw("4th axis"), Input.GetAxisRaw("5th axis"), 0);
+		//UpdateAngularVelocity (Quaternion.Angle(transform.rotation, transform.rotation));
+		transform.rotation = Quaternion.Inverse(Quaternion.FromToRotation(Vector3.right, thumbStick));
+		if (thumbStick[1] != 0 && thumbStick[2] != 0) 
+		{
+			Quaternion current_rotation = transform.rotation;
+		}
 	}
 
 	void UpdateAngularVelocity(Quaternion desired)
