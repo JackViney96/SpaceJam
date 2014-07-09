@@ -19,35 +19,5 @@ public class PlayerController : MonoBehaviour {
 		{
 			rigidbody.AddForce(Vector3.up * ((speed * Input.GetAxisRaw("Y axis")) * Time.deltaTime));
 		}
-		/*
-		if (Input.GetAxis("Vertical") == 1)
-		{
-			rigidbody.AddForce(Vector3.up * (speed * Time.deltaTime));	
-		}
-		if (Input.GetAxis("Vertical") == -1)
-		{
-			rigidbody.AddForce(-Vector3.up * (speed * Time.deltaTime));	
-		}
-		if (Input.GetAxis("Horizontal") == 1) {
-			rigidbody.AddForce(Vector3.right * (speed * Time.deltaTime));	
-		}
-		if (Input.GetAxis("Horizontal") == -1) {
-			rigidbody.AddForce(-Vector3.right * (speed * Time.deltaTime));
-		}
-
-		/* //Physical Forces are applied to the controller's rigidbody to move it.
-		if (Input.GetKey (KeyCode.W)) {
-			rigidbody.AddForce(Vector3.up * (speed * Time.deltaTime));	
-		}
-		if (Input.GetKey (KeyCode.S)) {
-			rigidbody.AddForce(-Vector3.up * (speed * Time.deltaTime));
-		}
-		if (Input.GetKey (KeyCode.D)) {
-			rigidbody.AddForce(Vector3.right * (speed * Time.deltaTime));	
-		}
-		if (Input.GetKey (KeyCode.A)) {
-			rigidbody.AddForce(-Vector3.right * (speed * Time.deltaTime));
-		}
-		*/
 	}
 }
