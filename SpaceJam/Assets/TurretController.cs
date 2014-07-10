@@ -12,5 +12,6 @@ public class TurretController : MonoBehaviour {
 	void Update () {
 		Vector3 bodyposition = (GameObject.Find ("entPlayer").transform.position + new Vector3 (0f, 0f, -0.4663933f));
 		transform.position = bodyposition;
+		if Input.g
 	}
 }

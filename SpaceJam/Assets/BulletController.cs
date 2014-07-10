@@ -2,16 +2,12 @@
 using System.Collections;
 
 public class BulletController : MonoBehaviour {
-	public float BulletSpeed = 1.0f;
-	Quaternion bulletRotation = Quaternion.identity;
-	// Use this for initialization
-	void Start () {
-		Quaternion bulletRotation = (GameObject.Find ("entPlayer_turret").transform.rotation);
-		return bulletRotation;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Quaternion.RotateTowards (transform.rotation, bulletRotation, 1); 
+	public Transform prefab;
+	void Example() {
+		int i = 0;
+		while (i < 10) {
+			Instantiate(prefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity) as Transform;
+			i++;
+		}
 	}
 }
